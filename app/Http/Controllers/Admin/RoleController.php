@@ -89,12 +89,12 @@ class RoleController extends BaseController
      */
     public function update(Request $request, Role $role)
     {
-        $this->validate($request,[
+        $data = $this->validate($request,[
            'name'=>"required|unique:roles,name,".$role->id
         ]);
-//        dd($request->all());
-        $role->update($request->except(['_token']));
-        $role->nodes()->sycn($request->get("node_ids"));
+//        dd($role);
+        $role->update($data);
+        $role->nodes()->sync($request->get("node_ids"));
         return redirect(route("admin.role.index"))->with("success",'修改角色操作成功');
     }
 

@@ -10,7 +10,8 @@ class BaseController extends Controller
     protected $page = 0;
     public function __construct()
     {
-        $this->page = env("PAGESIZE");
+//        var_dump(env('PAGES'));
+        $this->page = env("PAGES");
     }
 
 }

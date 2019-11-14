@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Node extends Model
+class Node extends Base
 {
-    protected $guarded = [];
 }

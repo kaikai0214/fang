@@ -95,6 +95,20 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                {{-- 选择给用户添加权限 --}}
+                                <div class="card">
+                                    <h4 class="card-title">添加用户权限</h4>
+                                    @foreach($role_data as $k=>$v)
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="radio" class="check_role" value="{{$k}}" name="role_id">
+                                            <label for="customCheck1">{{$v}}</label>
+                                        </div>
+                                    @endforeach
+                                </div>
+
+
+
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox mr-sm-2">
                                         <input type="checkbox" class="custom-control-input" id="invalidCheck" value="check" required>
@@ -131,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 {{--<div class="col-12">
                     <div class="card">
                         <div class="card-body">

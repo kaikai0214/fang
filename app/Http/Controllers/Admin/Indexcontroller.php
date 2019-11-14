@@ -13,11 +13,6 @@ class Indexcontroller extends Controller
 //    }
 
     public function index(Request $request){
-        $id = $request->get('id');
-        $info = \App\Models\Admin::find($id);
-//        dd($info['original']);
-//        dd(session('info',$info));
-//        dd( session('info'));
         return view("admin.index.index");
     }
     public function logout(){

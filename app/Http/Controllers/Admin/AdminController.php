@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
+use App\Models\Role;
 class AdminController extends BaseController
 {
     public function index(Request $request){
         // $data = \App\Models\Admin::all();
         // $data = \App\Models\Admin::orderBy("id","desc")->paginate($this->page);
         #从env中拿到常量，方便以后更改
-        $page = env("PAGESIZE");
-        $data = \App\Models\Services\AdminService::search($request,4);
-            return view("admin.admin.index",compact('data'));
+//        $page = env("MAIL_FROM_NAME");
+        $data = \App\Models\Services\AdminService::search($request,$this->page);
+        return view("admin.admin.index",compact('data'));
     }
     public function create(){
-        return view("admin.admin.create");
+        $role_data = Role::pluck("name",'id');
+//        dd($role_data);
+//        $role_data = treeLevel($role_data);
+        return view("admin.admin.create",compact("role_data"));
     }
 
     public function add(Request $request){
@@ -25,6 +27,9 @@ class AdminController extends BaseController
             "truename"=>"required",
             "email"=>"nullable|email",
             "password"=>"required|confirmed",
+            "role_id"=>"required"
+        ],[
+            'role_id.required'=>"角色需要选择一个"
         ]);
         #$data['password'] = bcrypt($data['password']);
         #使用模型中的修改器来加密密码  两种都可以，但是因为控制器可以不用来执行多余的执行，就用来修改器来完成

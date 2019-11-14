@@ -50,4 +50,8 @@ class Admin extends Authenticatable
     use SoftDeletes;
 //    指定软删除字段
     protected  $dates = ['delete_at'];
+
+    public function role(){
+        return $this->belongsTo(Role::class,'role_id');
+    }
 }

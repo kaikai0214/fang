@@ -17,11 +17,19 @@
 <div class="layui-fluid">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-sm12 layui-col-md12 zyl_mar_01">
-            <blockquote class="layui-elem-quote">Mr.Rainbow·简约后台登陆界面</blockquote>
+            <blockquote class="layui-elem-quote">
+                Mr.Rainbow·租房网后台登陆界面@if(session()->has('success'))
+                    <div style="font-size: 18px;color: red;float: right;">
+                        {{session('success')}}
+                    </div>
+                @endif
+            </blockquote>
         </div>
     </div>
 </div>
 <!-- Head End -->
+
+
 
 <!-- Carousel -->
 <div class="layui-row">
@@ -91,6 +99,8 @@
                     </div>
                     <div class="layui-col-xs4 layui-col-sm4 layui-col-md4">
                         <div class="zyl_lofo_vercode zylVerCode" onclick="zylVerCode()"></div>
+{{--                        {{captcha_img()}}--}}
+{{--                        <img src="{{captcha_src()}}" alt="">--}}
                     </div>
                 </div>
             </div>
@@ -99,6 +109,8 @@
             </div>
         </form>
     </div>
+
+    @include("admin.public.msg")
 </div>
 <!-- LoginForm End -->
 
@@ -127,8 +139,8 @@
             ,vercodes: function(value){
                 //获取验证码
                 var zylVerCode = $(".zylVerCode").html();
-                if(value!=zylVerCode){
-                    return '验证码错误（区分大小写）';
+                if(value.toLowerCase()!=zylVerCode.toLowerCase()){
+                    return '验证码错误';
                 }
             }
             ,content: function(value){
@@ -138,10 +150,9 @@
 
         //监听提交
         form.on('submit(demo1)', function(data){
-            layer.alert(JSON.stringify(data.field),{
-                title: '最终的提交信息'
-            })
-            // return false;
+            // layer.alert(JSON.stringify(data.field),{
+            //     title: '最终的提交信息'
+            // })
         });
 
 

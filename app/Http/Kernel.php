@@ -12,6 +12,7 @@ class Kernel extends HttpKernel
      * These middleware are run during every request to your application.
      *
      * @var array
+     * 全局中间件  注册中间件
      */
     protected $middleware = [
         \App\Http\Middleware\CheckForMaintenanceMode::class,
@@ -19,6 +20,9 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
+
+        //全局注册，这样的作法不太好，因为我们定义的中间件并不是全局都会用到，
+        #\App\Http\Middleware\CheckAdmin::class,
     ];
 
     /**
@@ -60,6 +64,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        'checkadmin' => \App\Http\Middleware\CheckAdmin::class,
     ];
 
     /**

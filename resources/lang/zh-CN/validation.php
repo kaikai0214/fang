@@ -29,6 +29,8 @@ return [
         'array'   => ':attribute 必须只有 :min - :max 个单元。',
     ],
     'boolean'              => ':attribute 必须为布尔值。',
+    'captcha'              => ':attribute 匹配不正确。',
+
     'confirmed'            => ':attribute 两次输入不一致。',
     'date'                 => ':attribute 不是一个有效的日期。',
     'date_equals'          => ':attribute 必须要等于 :date。',
@@ -181,5 +183,6 @@ return [
         'tel' => '手机号',
         'truename' => '真实姓名',
         'code' => '验证码',
+        'captcha' => '验证码',
     ],
 ];

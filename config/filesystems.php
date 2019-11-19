@@ -54,7 +54,14 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
-
+        'article'=>[
+          'driver'=>'local',
+          'root'=>public_path('uploads/article'),
+        ],
+        'fangattr'=>[
+            'driver'=>'local',
+            'root'=>public_path('uploads/fangattr'),
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

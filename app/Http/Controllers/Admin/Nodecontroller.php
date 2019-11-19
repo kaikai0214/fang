@@ -30,7 +30,10 @@ class Nodecontroller extends BaseController
     {
         $nodes = Node::where("pid",0)->pluck("name","id")->toArray();
         //在用户的最前面添加一个值；
-        array_unshift($nodes,"______顶级______");
+        #这里不可以使用unshift，因为它会把原本的需要不可以改变的下表给从0开始排序了
+//        array_unshift($nodes,"______顶级______");
+        $nodes[0] = "______顶级______";
+        ksort($nodes);
 //        dd($nodes);
         return view("admin.node.create",compact('nodes'));
     }

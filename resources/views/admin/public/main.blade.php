@@ -18,7 +18,7 @@
 {{--    sweetalert --}}
     <link href="{{Adminstatic()}}assets/libs/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" />
     <script src="{{Adminstatic()}}assets/libs/sweetalert2/dist/sweetalert2.min.js"></script>
-
+    @yield('css')
 </head>
 
 <body>
@@ -352,6 +352,7 @@
                             <span class="hide-menu">用户管理</span>
                             <span class="badge badge-pill badge-info ml-auto m-r-15">2</span>
                         </a>
+
                         <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item">
                                 <a href="{{route('admin.user.index')}}" class="sidebar-link">
@@ -360,14 +361,13 @@
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="{{route('admin.user.create')}}" class="sidebar-link">
-                                    <i class="mdi mdi-format-align-right"></i>
+                                <a href="{{route('admin.user.add')}}" class="sidebar-link">
+                                    <i class="mdi mdi-adjust"></i>
                                     <span class="hide-menu"> 添加用户 </span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
                     <li class="nav-small-cap">
                         <i class="mdi mdi-dots-horizontal"></i>
                         <span class="hide-menu">角色管理</span>
@@ -419,6 +419,86 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-small-cap">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                        <span class="hide-menu">文章管理</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                            <i class="mdi mdi-av-timer"></i>
+                            <span class="hide-menu">文章管理</span>
+                            <span class="badge badge-pill badge-info ml-auto m-r-15">2</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item">
+                                <a href="{{route('admin.article.index')}}" class="sidebar-link">
+                                    <i class="mdi mdi-adjust"></i>
+                                    <span class="hide-menu"> 文章列表 </span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{route('admin.article.create')}}" class="sidebar-link">
+                                    <i class="mdi mdi-format-align-right"></i>
+                                    <span class="hide-menu"> 添加文章 </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-small-cap">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                        <span class="hide-menu">房源管理</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                            <i class="mdi mdi-av-timer"></i>
+                            <span class="hide-menu">房源管理</span>
+                            <span class="badge badge-pill badge-info ml-auto m-r-15">2</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item">
+                                <a href="{{route('admin.fangattr.index')}}" class="sidebar-link">
+                                    <i class="mdi mdi-adjust"></i>
+                                    <span class="hide-menu"> 房源属性列表 </span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{route('admin.fangattr.create')}}" class="sidebar-link">
+                                    <i class="mdi mdi-format-align-right"></i>
+                                    <span class="hide-menu"> 添加房源属性 </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-small-cap">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                        <span class="hide-menu">房东管理</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                            <i class="mdi mdi-av-timer"></i>
+                            <span class="hide-menu">房东管理</span>
+                            <span class="badge badge-pill badge-info ml-auto m-r-15">2</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item">
+                                <a href="{{route('admin.fangowner.index')}}" class="sidebar-link">
+                                    <i class="mdi mdi-adjust"></i>
+                                    <span class="hide-menu"> 房东列表 </span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{route('admin.fangowner.create')}}" class="sidebar-link">
+                                    <i class="mdi mdi-format-align-right"></i>
+                                    <span class="hide-menu"> 添加房东 </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
 
                     <li class="nav-small-cap">
                         <i class="mdi mdi-dots-horizontal"></i>

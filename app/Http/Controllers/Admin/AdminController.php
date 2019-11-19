@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\Role;
+use Illuminate\Mail\Message;
+use Mail;
+
 class AdminController extends BaseController
 {
     public function index(Request $request){
@@ -15,8 +18,7 @@ class AdminController extends BaseController
     }
     public function create(){
         $role_data = Role::pluck("name",'id');
-//        dd($role_data);
-//        $role_data = treeLevel($role_data);
+
         return view("admin.admin.create",compact("role_data"));
     }
 
@@ -34,6 +36,13 @@ class AdminController extends BaseController
         #$data['password'] = bcrypt($data['password']);
         #使用模型中的修改器来加密密码  两种都可以，但是因为控制器可以不用来执行多余的执行，就用来修改器来完成
         $model = \App\Models\Admin::create($data);
+
+//        $ip = $_SERVER["REMOTE_ADDR"];
+//        $time = date("Y-m-d H:i:s");
+//        Mail::send("admin.mail.blade",compact('model','ip','time'),function (Message $message) use ($model){
+//            $message->subject("添加用户成功通知");
+//            $message->to($model->email,$model->truename);
+//        });
         return redirect(route("admin.user.index"))->with("success",'添加用户【'.$model->truename.'】成功');
     }
     public function edit(int $id){

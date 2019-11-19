@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Observers\AdminObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -54,4 +55,12 @@ class Admin extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class,'role_id');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+        self::observe(AdminObserver::class);
+    }
+
+
 }

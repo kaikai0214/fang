@@ -43,10 +43,7 @@ class LoginController extends Controller
             $message->to($model->email,$model->truename);
         });
 
-
-        $userinfo = \App\Models\Admin::find(auth()->user()->id);
         return redirect(route('admin.index',['id'=>auth()->user()->id]));
-//        return redirect(route('admin.index',['id'=>auth()->user()->id]))->with('userinfo',$userinfo);
     }
 
 }

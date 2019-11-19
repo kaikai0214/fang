@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-        <h1 style="color: red;">你好 ，{{$model->truename}}，欢迎您登陆到租房网，希望您可以租到想要的房子</h1>
+        <h1 style="color: red;">你好 ，{{$admin->truename}}，欢迎您登陆到租房网，希望您可以租到想要的房子</h1>
         <h3>您的ip地址为{{$ip}}</h3>
         <h3>您的登陆时间为{{$time}}</h3>
 </body>
